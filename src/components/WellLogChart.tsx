@@ -58,11 +58,11 @@ export function WellLogChart({ curves, depthData, viewMode }: WellLogChartProps)
                 <h3 className="font-mono text-sm font-semibold text-foreground">{curve.name}</h3>
                 <span className="text-[10px] font-mono text-muted-foreground">{curve.unit}</span>
               </div>
-              <ResponsiveContainer width="100%" height={250}>
-                <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
+              <ResponsiveContainer width="100%" height={400}>
+                <LineChart data={data} layout="vertical" margin={{ top: 20, right: 10, left: 10, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(220, 14%, 18%)" />
-                  <XAxis dataKey="depth" tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} label={{ value: 'Depth (ft)', position: 'insideBottom', offset: -2, fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} />
-                  <YAxis tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} />
+                  <YAxis dataKey="depth" reversed tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} label={{ value: 'Depth (ft)', angle: -90, position: 'insideLeft', offset: 0, fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} />
+                  <XAxis type="number" orientation="top" tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} label={{ value: curve.unit, position: 'insideTop', offset: -15, fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} />
                   <Tooltip
                     contentStyle={{ background: 'hsl(220, 18%, 10%)', border: '1px solid hsl(220, 14%, 18%)', borderRadius: 8, fontSize: 12 }}
                     labelStyle={{ color: 'hsl(40, 20%, 92%)' }}
@@ -80,11 +80,11 @@ export function WellLogChart({ curves, depthData, viewMode }: WellLogChartProps)
   return (
     <div className="rounded-xl border border-border gradient-card p-5">
       <h3 className="font-mono text-sm font-semibold text-foreground mb-4">Well-Log Curves (Merged)</h3>
-      <ResponsiveContainer width="100%" height={450}>
-        <LineChart data={mergedData} margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
+      <ResponsiveContainer width="100%" height={550}>
+        <LineChart data={mergedData} layout="vertical" margin={{ top: 20, right: 20, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="hsl(220, 14%, 18%)" />
-          <XAxis dataKey="depth" tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} label={{ value: 'Depth (ft)', position: 'insideBottom', offset: -2, fontSize: 11, fill: 'hsl(220, 10%, 50%)' }} />
-          <YAxis tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} />
+          <YAxis dataKey="depth" reversed tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} label={{ value: 'Depth (ft)', angle: -90, position: 'insideLeft', offset: 0, fontSize: 11, fill: 'hsl(220, 10%, 50%)' }} />
+          <XAxis type="number" orientation="top" tick={{ fontSize: 10, fill: 'hsl(220, 10%, 50%)' }} />
           <Tooltip
             contentStyle={{ background: 'hsl(220, 18%, 10%)', border: '1px solid hsl(220, 14%, 18%)', borderRadius: 8, fontSize: 12 }}
             labelStyle={{ color: 'hsl(40, 20%, 92%)' }}
